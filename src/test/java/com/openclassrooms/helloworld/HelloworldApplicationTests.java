@@ -7,7 +7,7 @@ import com.openclassrooms.helloworld.service.BusinessService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+@SpringBootTest //permet d'initialiser le contexte Spring
 class HelloworldApplicationTests {
 
     @Autowired
@@ -19,11 +19,8 @@ class HelloworldApplicationTests {
 
     @Test
     public void testGetHelloWorld() {
-
-        String expected = "Hello World!";
-
+        String expected = "Salut World!";
         String result = bs.getHelloWorld().getValue();
-
         assertEquals(expected, result);
     }
 
