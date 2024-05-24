@@ -1,7 +1,7 @@
 package com.openclassrooms.helloworld.model;
 
 public class HelloWorld {
-    private String value = "Hello World!";
+    private String value = "Salut World!";
 
     public String getValue(){
         return value;
