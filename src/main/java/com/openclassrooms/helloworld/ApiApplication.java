@@ -9,13 +9,13 @@ import com.openclassrooms.helloworld.service.BusinessService;
 
 
 @SpringBootApplication
-public class HelloworldApplication implements CommandLineRunner {
+public class ApiApplication implements CommandLineRunner {
 
     @Autowired
     private BusinessService bs;
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloworldApplication.class, args);
+        SpringApplication.run(ApiApplication.class, args);
     }
 
 
