@@ -18,7 +18,6 @@ public class ApiApplication implements CommandLineRunner {
         SpringApplication.run(ApiApplication.class, args);
     }
 
-
     public void run(String... args) throws Exception {
         HelloWorld hw = bs.getHelloWorld();
         System.out.println(hw);
