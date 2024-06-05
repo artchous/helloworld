@@ -1,5 +1,6 @@
 package com.openclassrooms.helloworld;
 
+import com.openclassrooms.helloworld.service.CodeFragmentService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -19,6 +20,7 @@ class ApiApplicationTests {
 
     @Autowired
     private BusinessService bs;
+    private CodeFragmentService cs;
 
     @Test
     void contextLoads() {
@@ -43,5 +45,13 @@ class ApiApplicationTests {
     }
 
 
+//    @Test
+//    public void testGetLanguageCode() throws Exception {
+//
+//        mockMvc.perform(get("/codefragment"))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$[0].language", is("java")));
+//
+//    }
 
 }

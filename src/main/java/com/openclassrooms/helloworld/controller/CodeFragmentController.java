@@ -18,16 +18,16 @@ public class CodeFragmentController {
      * Create - Add a new piece of code
      * @PostMapping: envoie de donnée
      */
-    @PostMapping("/newCodeFragment")
+    @PostMapping("/createCodeFragment")
     public CodeFragment createCodeFragment(@RequestBody CodeFragment codeFragment) {
         return codeService.saveCodeFragment(codeFragment);
     }
 
     /**
-     * Read - Get one piece of code
+     * Read - Get one piece of code by id
      * @GetMapping: lecture de donnée
      */
-    @GetMapping("/pieceOfCode/{id}")
+    @GetMapping("/codeFragment/{id}")
     public CodeFragment getCodeFragment(@PathVariable("id") final Long id) {
         Optional<CodeFragment> codeFragment = codeService.getCodeFragment(id);
         if(codeFragment.isPresent()) {
@@ -41,7 +41,7 @@ public class CodeFragmentController {
     /**
      * Read - Get all pieces of code
      */
-    @GetMapping("/allCodeFragments")
+    @GetMapping("/codeFragments")
     public Iterable<CodeFragment> getAllCodeFragments() {
         return codeService.getCodeFragments();
     }
@@ -50,7 +50,7 @@ public class CodeFragmentController {
      * Delete - Delete a piece of code
      * @DeleteMapping: suppression de l'élément envoyé
      */
-    @DeleteMapping("/pieceOfCode/{id}")
+    @DeleteMapping("/deleteCodeFragment/{id}")
     public void deleteCodeFragment(@PathVariable("id") final Long id) {
         codeService.deleteCodeFragment(id);
     }
@@ -59,7 +59,7 @@ public class CodeFragmentController {
      * Update - Update an existing piece of code
      * @PutMapping: remplacement complet de l'élément envoyé
      */
-    @PutMapping("/pieceOfCode/{id}")
+    @PutMapping("/codeFragment/{id}")
     public CodeFragment updateCodeFragment(@PathVariable("id") final Long id, @RequestBody CodeFragment codeFragment) {
         Optional<CodeFragment> e = codeService.getCodeFragment(id);
         if(e.isPresent()) {

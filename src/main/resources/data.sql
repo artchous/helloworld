@@ -27,5 +27,10 @@ INSERT INTO employees (first_name, last_name, mail, password) VALUES
 INSERT INTO codeFragment (code, language, lines_count, line_number) VALUES
   ('public String toString(){
         return value;
-    }','java', 3, 15);
+    }','java', 3, 15),
+  ('public Iterable<Employee> getEmployees() {
+        return employeeService.getEmployees();
+    }', 'java', 3, 48
+  );
+
 
