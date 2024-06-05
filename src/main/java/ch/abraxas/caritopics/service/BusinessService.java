@@ -1,6 +1,6 @@
-package com.openclassrooms.helloworld.service;
+package ch.abraxas.caritopics.service;
 
-import com.openclassrooms.helloworld.model.HelloWorld;
+import ch.abraxas.caritopics.model.HelloWorld;
 import org.springframework.stereotype.Component;
 
 @Component

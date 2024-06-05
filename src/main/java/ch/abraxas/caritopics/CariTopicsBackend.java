@@ -1,21 +1,21 @@
-package com.openclassrooms.helloworld;
+package ch.abraxas.caritopics;
 
-import com.openclassrooms.helloworld.model.HelloWorld;
+import ch.abraxas.caritopics.model.HelloWorld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.CommandLineRunner;
-import com.openclassrooms.helloworld.service.BusinessService;
+import ch.abraxas.caritopics.service.BusinessService;
 
 
 @SpringBootApplication
-public class HelloworldApplication implements CommandLineRunner {
+public class CariTopicsBackend implements CommandLineRunner {
 
     @Autowired
     private BusinessService bs;
 
     public static void main(String[] args) {
-        SpringApplication.run(HelloworldApplication.class, args);
+        SpringApplication.run(CariTopicsBackend.class, args);
     }
 
 

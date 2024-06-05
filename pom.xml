@@ -8,11 +8,11 @@
         <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.openclassrooms</groupId>
-    <artifactId>helloworld</artifactId>
+    <groupId>ch.abraxas</groupId>
+    <artifactId>caritopics-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>helloworld</name>
-    <description>helloworld</description>
+    <name>CariTopics-backend</name>
+    <description>Backend of the CariTopics app</description>
     <properties>
         <java.version>17</java.version>
     </properties>

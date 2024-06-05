@@ -1,4 +1,4 @@
-package com.openclassrooms.helloworld.model;
+package ch.abraxas.caritopics.model;
 
 public class HelloWorld {
     private String value = "Hello World!";
