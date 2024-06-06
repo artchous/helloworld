@@ -9,8 +9,10 @@ import lombok.Data;
 public class TopicFile {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long   nTopic;
     private String file_title;
     private String file_type;
     private String file_content;

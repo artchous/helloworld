@@ -9,8 +9,10 @@ import lombok.Data;
 public class TopicComment {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long   nTopic;
     private String comment_user;
     private String comment_content;
     private String comment_date;

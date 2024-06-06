@@ -35,14 +35,15 @@ VALUES ('public String toString(){
 
 CREATE TABLE topicComment
 (
-    id              INT,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
 
+    nTopic          INT,
     comment_user    VARCHAR(250) NOT NULL,
     comment_content VARCHAR(250) NOT NULL,
     comment_date    VARCHAR(250) NOT NULL
 );
 
-INSERT INTO topicComment (id, comment_user, comment_content, comment_date)
+INSERT INTO topicComment (nTopic, comment_user, comment_content, comment_date)
 VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des ...', '18.02.2012'),
        (1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
        (2, 'Mike Ross', 'On y est presque', '20.05.2011'),
@@ -52,18 +53,21 @@ VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des ...', '18.02.2012
 
 CREATE TABLE topicFile
 (
-    id              INT,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
 
+    nTopic          INT,
     file_title      VARCHAR(250) NOT NULL,
     file_type       VARCHAR(250) NOT NULL,
     file_content    VARCHAR(250) NOT NULL,
     file_date       VARCHAR(250) NOT NULL
 );
 
-INSERT INTO topicFile (id, file_title, file_type, file_content, file_date)
+INSERT INTO topicFile (nTopic, file_title, file_type, file_content, file_date)
 VALUES (1,'helloWorld', 'js', 'if (blabla=blabla)' ||
                               '{//do something}', '13.02.09'),
        (2,'helloWorld', 'js', 'if (blabla=blabla)' ||
+                              '{//do something}', '13.02.09'),
+       (2,'hey', 'html', 'if (blabla=blabla)' ||
                               '{//do something}', '13.02.09')
 ;
 
