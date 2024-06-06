@@ -44,8 +44,8 @@ CREATE TABLE topicComment
 
 INSERT INTO topicComment (id, comment_user, comment_content, comment_date)
 VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des ...', '18.02.2012'),
-       /**(1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
-       (2, 'Mike Ross', 'On y est presque', '20.05.2011'),**/
+       (1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
+       (2, 'Mike Ross', 'On y est presque', '20.05.2011'),
        (2, 'Louis Litt', 'Ouf, cest totalement faux', '21.03.2024')
 ;
 
@@ -74,8 +74,9 @@ CREATE TABLE topicDisplay
     title           VARCHAR(250) NOT NULL,
     username        VARCHAR(250) NOT NULL,
     date_post       VARCHAR(250) NOT NULL,
-    description     VARCHAR(250) NOT NULL,
+    description     VARCHAR(250) NOT NULL
 
+    /**
     file_title      VARCHAR(250),
     file_type       VARCHAR(250),
     file_content    VARCHAR(250),
@@ -84,28 +85,34 @@ CREATE TABLE topicDisplay
     comment_user    VARCHAR(250),
     comment_content VARCHAR(250),
     comment_date    VARCHAR(250)
+
+     */
 );
 
-INSERT INTO topicDisplay (title, username, date_post, description,
-                          file_title, file_type, file_content, file_date,
-                          comment_user, comment_content, comment_date)
+INSERT INTO topicDisplay (title, username, date_post, description
+                          /**file_title, file_type, file_content, file_date,
+                          comment_user, comment_content, comment_date**/)
 VALUES
-    ('Essai1','Lily Bloom','23.02.24','Ca va etre long',
+    ('Essai1','Lily Bloom','23.02.24','Ca va etre long'
+        /**,
         select file_title from topicFile where id= 1,
         select file_type from topicFile where id= 1,
         select file_content from topicFile where id= 1,
         select file_date from topicFile where id= 1,
         select comment_user from topicComment where id= 1,
         select comment_content from topicComment where id= 1,
-        select comment_date from topicComment where id= 1),
-    ('Topic 2', 'Harvey Specter', '17.11.2003', 'jsp',
+        select comment_date from topicComment where id= 1**/),
+    ('Topic 2', 'Harvey Specter', '17.11.2003', 'jsp'
+        /** ,
         select file_title from topicFile where id=2,
         select file_type from topicFile where id=2,
         select file_content from topicFile where id=2,
         select file_date from topicFile where id=2,
         select comment_user from topicComment where id=2,
         select comment_content from topicComment where id=2,
-        select comment_date from topicComment where id=2)
+        select comment_date from topicComment where id=2
+          **/
+)
 ;
 
 
