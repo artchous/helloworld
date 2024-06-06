@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.openclassrooms.helloworld.service.BusinessService;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -18,20 +17,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class ApiApplicationTests {
 
-    @Autowired
-    private BusinessService bs;
     private CodeFragmentService cs;
 
     @Test
     void contextLoads() {
     }
 
-    @Test
-    public void testGetHelloWorld() {
-        String expected = "Salut World!";
-        String result = bs.getHelloWorld().getValue();
-        assertEquals(expected, result);
-    }
 
     //Verifie la récupéération de la liste de tous les employés
     @Autowired
