@@ -12,8 +12,15 @@ public class TopicComment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long   nTopic;
+    @Column(name = "topicID")
+    private Long   topicID;
+
+    @Column(name = "commentUser")
     private String comment_user;
+
+    @Column(name = "commentContent")
     private String comment_content;
+
+    @Column(name = "commentDate")
     private String comment_date;
 }

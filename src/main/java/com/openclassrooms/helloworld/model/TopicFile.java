@@ -12,9 +12,18 @@ public class TopicFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long   nTopic;
+    @Column(name = "topicID")
+    private Long   topicID;
+
+    @Column(name = "fileTitle")
     private String file_title;
+
+    @Column(name = "fileType")
     private String file_type;
+
+    @Column(name = "fileContent")
     private String file_content;
+
+    @Column(name = "fileDate")
     private String file_date;
 }

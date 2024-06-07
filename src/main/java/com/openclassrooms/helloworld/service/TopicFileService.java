@@ -15,25 +15,31 @@ public class TopicFileService {
     @Autowired
     private TopicFileRepository topicFileRepository;
 
-    //Normalement pas besoin de celui-là
-    //retourne tous les fichiers
-    public Iterable<TopicFile> getTopicFiles() {
-        return topicFileRepository.findAll();
+    /** Fichier spécifique **/
+    //retourne 1 fichier spécifique
+    public Optional<TopicFile> getTopicFileById(Long id) {
+        return topicFileRepository.findById(id);
     }
 
-    //retourne les fichiers correspondant au topic
-    public Optional<TopicFile> getTopicFileById(Long numTopic) {
-        return topicFileRepository.findById(numTopic);
-    }
-
-    //supprime 1 fichier
+    //supprime 1 fichier spécifique
     public void deleteTopicFile(final Long id) {
         topicFileRepository.deleteById(id);
     }
 
-    //sauvegarde 1 fichier
+    //sauvegarde 1 fichier spécifique
     public TopicFile saveTopicFile(final TopicFile topicFile) {
         return topicFileRepository.save(topicFile);
+    }
+
+    /** Fichiers lié à un topic **/
+    //retourne les fichiers correspondant au topic
+    public Optional<TopicFile> getTopicFilesByTopicId(Long topicId) {
+        return topicFileRepository.findTopicFilesByTopicID(topicId);
+    }
+
+    //supprime tous les fichiers liés au topic
+    public void deleteTopicFilesByTopicId(Long topicId) {
+        topicFileRepository.deleteTopicFilesByTopicID(topicId);
     }
 
 }

@@ -15,25 +15,32 @@ public class TopicCommentService {
     @Autowired
     private TopicCommentRepository topicCommentRepository;
 
-    //Normalement pas besoin de celui-là
-    //retourne tous les commentaires
-    public Iterable<TopicComment> getTopicComments() {
-        return topicCommentRepository.findAll();
+    /** Commentaire spécifique **/
+    //retourne 1 commentaire spécifique
+    public Optional<TopicComment> getTopicCommentById(Long id) {
+        return topicCommentRepository.findById(id);
     }
 
-    //retourne les commentaires correspondant au topic
-    public Optional<TopicComment> getTopicCommentById(Long numTopic) {
-        return topicCommentRepository.findById(numTopic);
-    }
-
-    //supprime 1 commentaire
+    //supprime 1 commentaire spécifique
     public void deleteTopicComment(final Long id) {
         topicCommentRepository.deleteById(id);
     }
 
-    //sauvegarde 1 commentaire
+    //sauvegarde 1 commentaire spécifique
     public TopicComment saveTopicComment(final TopicComment topicComment) {
         return topicCommentRepository.save(topicComment);
+    }
+
+
+    /** Commentaires lié à un topic **/
+    //retourne les commentaires correspondant au topic
+    public Optional<TopicComment> getTopicCommentByTopicId(Long topicID) {
+        return topicCommentRepository.findById(topicID);
+    }
+
+    //supprime tous les commentaires liés à un topic
+    public void deleteTopicCommentByTopicId(Long topicID) {
+        topicCommentRepository.deleteTopicCommentsByTopicID(topicID);
     }
 
 }
