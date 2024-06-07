@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS codeFragment;
 
 DROP TABLE IF EXISTS topicComment;
 DROP TABLE IF EXISTS topicFile;
@@ -17,20 +16,6 @@ INSERT INTO employees (first_name, last_name, mail, password)
 VALUES ('Laurent', 'GINA', 'laurentgina@mail.com', 'laurent'),
        ('Sophie', 'FONCEK', 'sophiefoncek@mail.com', 'sophie'),
        ('Agathe', 'FEELING', 'agathefeeling@mail.com', 'agathe');
-
-CREATE TABLE codeFragment (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    code            VARCHAR(250) NOT NULL,
-    language        VARCHAR(250) NOT NULL,
-    lines_count     INT,
-    line_number     INT
-);
-
-INSERT INTO codeFragment (code, language, lines_count, line_number)
-VALUES ('public String toString(){
-        return value;
-    }', 'java', 3, 15),
-       (select first_name from employees where id= 1, select first_name from employees where id= 1, 3, 48);
 
 
 CREATE TABLE topicComment
