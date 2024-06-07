@@ -33,11 +33,7 @@ public class EmployeeController {
     @GetMapping("/employee/{id}")
     public Employee getEmployee(@PathVariable("id") final Long id) {
         Optional<Employee> employee = employeeService.getEmployee(id);
-        if(employee.isPresent()) {
-            return employee.get();
-        } else {
-            return null;
-        }
+        return employee.orElse(null);
     }
 
     /**
@@ -67,7 +63,7 @@ public class EmployeeController {
             }
             String lastName = employee.getLastName();
             if(lastName != null) {
-                currentEmployee.setLastName(lastName);;
+                currentEmployee.setLastName(lastName);
             }
             String mail = employee.getMail();
             if(mail != null) {
@@ -75,7 +71,7 @@ public class EmployeeController {
             }
             String password = employee.getPassword();
             if(password != null) {
-                currentEmployee.setPassword(password);;
+                currentEmployee.setPassword(password);
             }
             employeeService.saveEmployee(currentEmployee);
             return currentEmployee;
