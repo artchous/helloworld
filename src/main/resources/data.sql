@@ -1,9 +1,8 @@
 DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS codeFragment;
 
-DROP TABLE IF EXISTS topicComment;
-DROP TABLE IF EXISTS topicFile;
-DROP TABLE IF EXISTS topicDisplay;
+DROP TABLE IF EXISTS topic_comment;
+DROP TABLE IF EXISTS topic_file;
+DROP TABLE IF EXISTS topic_display;
 
 CREATE TABLE employees (
   id INT AUTO_INCREMENT  PRIMARY KEY,
@@ -18,94 +17,66 @@ VALUES ('Laurent', 'GINA', 'laurentgina@mail.com', 'laurent'),
        ('Sophie', 'FONCEK', 'sophiefoncek@mail.com', 'sophie'),
        ('Agathe', 'FEELING', 'agathefeeling@mail.com', 'agathe');
 
-CREATE TABLE codeFragment (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    code            VARCHAR(250) NOT NULL,
-    language        VARCHAR(250) NOT NULL,
-    lines_count     INT,
-    line_number     INT
-);
 
-INSERT INTO codeFragment (code, language, lines_count, line_number)
-VALUES ('public String toString(){
-        return value;
-    }', 'java', 3, 15),
-       (select first_name from employees where id= 1, select first_name from employees where id= 1, 3, 48);
-
-
-CREATE TABLE topicComment
+CREATE TABLE topic_comment
 (
-    id              INT,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
 
+    topicID         INT,
     comment_user    VARCHAR(250) NOT NULL,
     comment_content VARCHAR(250) NOT NULL,
     comment_date    VARCHAR(250) NOT NULL
 );
 
-INSERT INTO topicComment (id, comment_user, comment_content, comment_date)
+INSERT INTO topic_comment (topicID, comment_user, comment_content, comment_date)
 VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des ...', '18.02.2012'),
-       /**(1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
-       (2, 'Mike Ross', 'On y est presque', '20.05.2011'),**/
-       (2, 'Louis Litt', 'Ouf, cest totalement faux', '21.03.2024')
+       (1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
+       (2, 'Mike Ross', 'On y est presque', '20.05.2011'),
+       (2, 'Louis Litt', 'Ouf, cest totalement faux', '21.03.2024'),
+       (3, 'Louis Litt', 'Ouf, cest totalement faux', '21.03.2024')
 ;
 
 
-CREATE TABLE topicFile
+CREATE TABLE topic_file
 (
-    id              INT,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
 
+    topicID         INT,
     file_title      VARCHAR(250) NOT NULL,
     file_type       VARCHAR(250) NOT NULL,
     file_content    VARCHAR(250) NOT NULL,
     file_date       VARCHAR(250) NOT NULL
 );
 
-INSERT INTO topicFile (id, file_title, file_type, file_content, file_date)
+INSERT INTO topic_file (topicID, file_title, file_type, file_content, file_date)
 VALUES (1,'helloWorld', 'js', 'if (blabla=blabla)' ||
                               '{//do something}', '13.02.09'),
        (2,'helloWorld', 'js', 'if (blabla=blabla)' ||
-                              '{//do something}', '13.02.09')
+                              '{//do something}', '13.02.09'),
+       (2,'hey', 'html', 'if (blabla=blabla)' ||
+                              '{//do something}', '13.02.09'),
+       (3,'hey', 'html', 'if (blabla=blabla)' ||
+                         '{//do something}', '13.02.09')
 ;
 
 
-CREATE TABLE topicDisplay
+CREATE TABLE topic_display
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
     title           VARCHAR(250) NOT NULL,
     username        VARCHAR(250) NOT NULL,
     date_post       VARCHAR(250) NOT NULL,
-    description     VARCHAR(250) NOT NULL,
-
-    file_title      VARCHAR(250),
-    file_type       VARCHAR(250),
-    file_content    VARCHAR(250),
-    file_date       VARCHAR(250),
-
-    comment_user    VARCHAR(250),
-    comment_content VARCHAR(250),
-    comment_date    VARCHAR(250)
+    description     VARCHAR(250) NOT NULL
 );
 
-INSERT INTO topicDisplay (title, username, date_post, description,
-                          file_title, file_type, file_content, file_date,
-                          comment_user, comment_content, comment_date)
+INSERT INTO topic_display (title, username, date_post, description)
 VALUES
-    ('Essai1','Lily Bloom','23.02.24','Ca va etre long',
-        select file_title from topicFile where id= 1,
-        select file_type from topicFile where id= 1,
-        select file_content from topicFile where id= 1,
-        select file_date from topicFile where id= 1,
-        select comment_user from topicComment where id= 1,
-        select comment_content from topicComment where id= 1,
-        select comment_date from topicComment where id= 1),
-    ('Topic 2', 'Harvey Specter', '17.11.2003', 'jsp',
-        select file_title from topicFile where id=2,
-        select file_type from topicFile where id=2,
-        select file_content from topicFile where id=2,
-        select file_date from topicFile where id=2,
-        select comment_user from topicComment where id=2,
-        select comment_content from topicComment where id=2,
-        select comment_date from topicComment where id=2)
+    ('Essai1','Lily Bloom','23.02.24','Ca va etre long'),
+    ('Topic 2', 'Harvey Specter', '17.11.2003', 'jsp'),
+    ('Topic 3', 'Louis Litt', '11.12.1984', 'abcdedfghijklmnop'),
+    ('4', 'Dora', '28.10.1293', 'Partons à aventure'),
+    ('Topic 5', 'Anna', '28.10.1293', 'Partons à aventure'),
+    ('Topic 6', 'Mike', '28.10.1293', 'Partons à aventure')
 ;
 
 

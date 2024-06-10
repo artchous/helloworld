@@ -5,19 +5,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="codeFragment")
-public class CodeFragment {
+@Table(name="topic_display")
+public class TopicDisplay {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String code;
+    private String title;
+    private String username;
+    private String date_post;
+    private String description;
 
-    private String language;
-
-    @Column(name="lines_count")
-    private Long nbrLigne;
-
-    private Long line_number;
 }
