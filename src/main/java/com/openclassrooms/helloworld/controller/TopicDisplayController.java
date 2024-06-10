@@ -28,7 +28,7 @@ public class TopicDisplayController {
      * @param id The id of the topic
      * @return A displayTopic fulfilled
      */
-    @GetMapping("/topic/{id}")
+    @GetMapping("/topic{id}")
     public TopicDisplay getTopicById(@PathVariable("id") final Long id) {
         Optional<TopicDisplay> topicDisplay = displayService.getTopicById(id);
         return topicDisplay.orElse(null);
@@ -48,7 +48,7 @@ public class TopicDisplayController {
      * @param id    - The id of the employee to update
      * @param topic - the object topic updated
      */
-    @PutMapping("/topic/{id}")
+    @PutMapping("/topic{id}")
     public TopicDisplay updateTopic(@PathVariable("id") final Long id, @RequestBody TopicDisplay topic) {
         //Va chercher le topic à modifier grâce à id
         Optional<TopicDisplay> t = displayService.getTopicById(id);
@@ -86,7 +86,7 @@ public class TopicDisplayController {
      * Delete - delete a topic
      * @param id - The id of the topic to delete
      */
-    @DeleteMapping("/topic/{id}")
+    @DeleteMapping("/topic{id}")
     public void deleteTopic(@PathVariable("id") final Long id) {
         displayService.deleteTopic(id);
     }
