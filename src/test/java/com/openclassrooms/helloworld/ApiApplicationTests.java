@@ -20,7 +20,7 @@ class ApiApplicationTests {
     }
 
 
-    //Verifie la récupéération de la liste de tous les employés
+    //Verifie la récupération de la liste de tous les employés
     @Autowired
     public MockMvc mockMvc;
 
@@ -31,14 +31,5 @@ class ApiApplicationTests {
                 .andExpect(jsonPath("$[0].firstName", is("Laurent")));
     }
 
-
-//    @Test
-//    public void testGetLanguageCode() throws Exception {
-//
-//        mockMvc.perform(get("/codefragment"))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$[0].language", is("java")));
-//
-//    }
 
 }

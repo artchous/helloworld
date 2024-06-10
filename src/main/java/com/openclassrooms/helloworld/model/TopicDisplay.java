@@ -17,13 +17,4 @@ public class TopicDisplay {
     private String date_post;
     private String description;
 
-    /**
-    private String file_title;
-    private String file_type;
-    private String file_date;
-
-    private String comment_user;
-    private String comment_content;
-    private String comment_date;
-     **/
 }
