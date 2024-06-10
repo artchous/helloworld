@@ -19,18 +19,17 @@ public class TopicDisplayController {
      * @return The topic object saved
      */
     @PostMapping("/newTopic")
-    public TopicDisplay createTopicDisplay(@RequestBody TopicDisplay topic) {
+    public TopicDisplay createTopic(@RequestBody TopicDisplay topic) {
         return displayService.saveTopic(topic);
     }
 
     /**
      * Read - Get one topic
-     *
      * @param id The id of the topic
      * @return A displayTopic fulfilled
      */
-    @GetMapping("/topic{id}")
-    public TopicDisplay getTopicDisplayById(@PathVariable("id") final Long id) {
+    @GetMapping("/topic/{id}")
+    public TopicDisplay getTopicById(@PathVariable("id") final Long id) {
         Optional<TopicDisplay> topicDisplay = displayService.getTopicById(id);
         return topicDisplay.orElse(null);
     }
@@ -40,7 +39,7 @@ public class TopicDisplayController {
      * @return - An Iterable object of TopicDisplay fulfilled
      */
     @GetMapping("/topics")
-    public Iterable<TopicDisplay> getAllTopicDisplays() {
+    public Iterable<TopicDisplay> getAllTopics() {
         return displayService.getTopics();
     }
 
@@ -49,8 +48,8 @@ public class TopicDisplayController {
      * @param id    - The id of the employee to update
      * @param topic - the object topic updated
      */
-    @PutMapping("/topic{id}")
-    public TopicDisplay updateTopicDisplay(@PathVariable("id") final Long id, @RequestBody TopicDisplay topic) {
+    @PutMapping("/topic/{id}")
+    public TopicDisplay updateTopic(@PathVariable("id") final Long id, @RequestBody TopicDisplay topic) {
         //Va chercher le topic à modifier grâce à id
         Optional<TopicDisplay> t = displayService.getTopicById(id);
         if (t.isPresent()) {
@@ -87,8 +86,8 @@ public class TopicDisplayController {
      * Delete - delete a topic
      * @param id - The id of the topic to delete
      */
-    @DeleteMapping("/topic{id}")
-    public void deleteTopicDisplay(@PathVariable("id") final Long id) {
+    @DeleteMapping("/topic/{id}")
+    public void deleteTopic(@PathVariable("id") final Long id) {
         displayService.deleteTopic(id);
     }
 }

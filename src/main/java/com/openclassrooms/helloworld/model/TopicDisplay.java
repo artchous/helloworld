@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="topicDisplay")
+@Table(name="topic_display")
 public class TopicDisplay {
 
     @Id

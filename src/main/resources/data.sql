@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS employees;
 
-DROP TABLE IF EXISTS topicComment;
-DROP TABLE IF EXISTS topicFile;
-DROP TABLE IF EXISTS topicDisplay;
+DROP TABLE IF EXISTS topic_comment;
+DROP TABLE IF EXISTS topic_file;
+DROP TABLE IF EXISTS topic_display;
 
 CREATE TABLE employees (
   id INT AUTO_INCREMENT  PRIMARY KEY,
@@ -18,7 +18,7 @@ VALUES ('Laurent', 'GINA', 'laurentgina@mail.com', 'laurent'),
        ('Agathe', 'FEELING', 'agathefeeling@mail.com', 'agathe');
 
 
-CREATE TABLE topicComment
+CREATE TABLE topic_comment
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -28,7 +28,7 @@ CREATE TABLE topicComment
     comment_date    VARCHAR(250) NOT NULL
 );
 
-INSERT INTO topicComment (topicID, comment_user, comment_content, comment_date)
+INSERT INTO topic_comment (topicID, comment_user, comment_content, comment_date)
 VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des ...', '18.02.2012'),
        (1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
        (2, 'Mike Ross', 'On y est presque', '20.05.2011'),
@@ -36,7 +36,7 @@ VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des ...', '18.02.2012
 ;
 
 
-CREATE TABLE topicFile
+CREATE TABLE topic_file
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
 
@@ -47,7 +47,7 @@ CREATE TABLE topicFile
     file_date       VARCHAR(250) NOT NULL
 );
 
-INSERT INTO topicFile (topicID, file_title, file_type, file_content, file_date)
+INSERT INTO topic_file (topicID, file_title, file_type, file_content, file_date)
 VALUES (1,'helloWorld', 'js', 'if (blabla=blabla)' ||
                               '{//do something}', '13.02.09'),
        (2,'helloWorld', 'js', 'if (blabla=blabla)' ||
@@ -57,7 +57,7 @@ VALUES (1,'helloWorld', 'js', 'if (blabla=blabla)' ||
 ;
 
 
-CREATE TABLE topicDisplay
+CREATE TABLE topic_display
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
     title           VARCHAR(250) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE topicDisplay
      */
 );
 
-INSERT INTO topicDisplay (id,title, username, date_post, description
+INSERT INTO topic_display (id,title, username, date_post, description
                           /**file_title, file_type, file_content, file_date,
                           comment_user, comment_content, comment_date**/)
 VALUES
