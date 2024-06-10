@@ -17,30 +17,30 @@ public class TopicCommentService {
 
     /** Commentaire spécifique **/
     //retourne 1 commentaire spécifique
-    public Optional<TopicComment> getTopicCommentById(Long id) {
+    public Optional<TopicComment> getCommentById(Long id) {
         return topicCommentRepository.findById(id);
     }
 
     //supprime 1 commentaire spécifique
-    public void deleteTopicComment(final Long id) {
+    public void deleteComment(final Long id) {
         topicCommentRepository.deleteById(id);
     }
 
     //sauvegarde 1 commentaire spécifique
-    public TopicComment saveTopicComment(final TopicComment topicComment) {
+    public TopicComment saveComment(final TopicComment topicComment) {
         return topicCommentRepository.save(topicComment);
     }
 
 
     /** Commentaires lié à un topic **/
     //retourne les commentaires correspondant au topic
-    public Optional<TopicComment> getTopicCommentByTopicId(Long topicID) {
-        return topicCommentRepository.findById(topicID);
+    public Iterable<TopicComment> getCommentByTopicId(Long topicID) {
+        return topicCommentRepository.findCommentsByTopicID(topicID);
     }
 
     //supprime tous les commentaires liés à un topic
-    public void deleteTopicCommentByTopicId(Long topicID) {
-        topicCommentRepository.deleteTopicCommentsByTopicID(topicID);
+    public void deleteCommentByTopicId(Long topicID) {
+        topicCommentRepository.deleteCommentsByTopicID(topicID);
     }
 
 }

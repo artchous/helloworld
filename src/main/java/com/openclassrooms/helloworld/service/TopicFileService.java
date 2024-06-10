@@ -17,12 +17,12 @@ public class TopicFileService {
 
     /** Fichier spécifique **/
     //retourne 1 fichier spécifique
-    public Optional<TopicFile> getTopicFileById(Long id) {
+    public Optional<TopicFile> getFileById(Long id) {
         return topicFileRepository.findById(id);
     }
 
     //supprime 1 fichier spécifique
-    public void deleteTopicFile(final Long id) {
+    public void deleteFile(final Long id) {
         topicFileRepository.deleteById(id);
     }
 
@@ -33,13 +33,13 @@ public class TopicFileService {
 
     /** Fichiers lié à un topic **/
     //retourne les fichiers correspondant au topic
-    public Optional<TopicFile> getTopicFilesByTopicId(Long topicId) {
-        return topicFileRepository.findTopicFilesByTopicID(topicId);
+    public Iterable<TopicFile> getFilesByTopicId(Long topicId) {
+        return topicFileRepository.findFilesByTopicID(topicId);
     }
 
     //supprime tous les fichiers liés au topic
-    public void deleteTopicFilesByTopicId(Long topicId) {
-        topicFileRepository.deleteTopicFilesByTopicID(topicId);
+    public void deleteFilesByTopicId(Long topicId) {
+        topicFileRepository.deleteFilesByTopicID(topicId);
     }
 
 }

@@ -13,16 +13,14 @@ public class TopicDisplayController {
     @Autowired
     private TopicDisplayService displayService;
 
-
     /**
      * Create - Add a new topic
-     *
      * @param topic An object topicDisplay
      * @return The topic object saved
      */
-    @PostMapping("/topic")
+    @PostMapping("/newTopic")
     public TopicDisplay createTopicDisplay(@RequestBody TopicDisplay topic) {
-        return displayService.saveTopicDisplay(topic);
+        return displayService.saveTopic(topic);
     }
 
     /**
@@ -31,9 +29,9 @@ public class TopicDisplayController {
      * @param id The id of the topic
      * @return A displayTopic fulfilled
      */
-    @GetMapping("/topic/{id}")
+    @GetMapping("/topic{id}")
     public TopicDisplay getTopicDisplayById(@PathVariable("id") final Long id) {
-        Optional<TopicDisplay> topicDisplay = displayService.getTopicDisplayById(id);
+        Optional<TopicDisplay> topicDisplay = displayService.getTopicById(id);
         return topicDisplay.orElse(null);
     }
 
@@ -43,7 +41,7 @@ public class TopicDisplayController {
      */
     @GetMapping("/topics")
     public Iterable<TopicDisplay> getAllTopicDisplays() {
-        return displayService.getTopicDisplays();
+        return displayService.getTopics();
     }
 
     /**
@@ -51,17 +49,15 @@ public class TopicDisplayController {
      * @param id    - The id of the employee to update
      * @param topic - the object topic updated
      */
-    @PutMapping("/topic/{id}")
+    @PutMapping("/topic{id}")
     public TopicDisplay updateTopicDisplay(@PathVariable("id") final Long id, @RequestBody TopicDisplay topic) {
         //Va chercher le topic à modifier grâce à id
-        Optional<TopicDisplay> t = displayService.getTopicDisplayById(id);
+        Optional<TopicDisplay> t = displayService.getTopicById(id);
         if (t.isPresent()) {
             TopicDisplay currentTopic = t.get();
 
-            /**
-             * Vérifie les modifs du @param topic
-             * et change les anciennes données où il y a besoin
-             */
+             // Vérifie les modifs du @param topic
+             // et change les anciennes données où il y a besoin
             String title = topic.getTitle();
             if (title != null) {
                 currentTopic.setTitle(title);
@@ -80,7 +76,7 @@ public class TopicDisplayController {
             }
 
             //sauvegarde les modifications
-            displayService.saveTopicDisplay(currentTopic);
+            displayService.saveTopic(currentTopic);
             return currentTopic;
         } else {
             return null;
@@ -91,8 +87,8 @@ public class TopicDisplayController {
      * Delete - delete a topic
      * @param id - The id of the topic to delete
      */
-    @DeleteMapping("/topic/{id}")
+    @DeleteMapping("/topic{id}")
     public void deleteTopicDisplay(@PathVariable("id") final Long id) {
-        displayService.deleteTopicDisplay(id);
+        displayService.deleteTopic(id);
     }
 }

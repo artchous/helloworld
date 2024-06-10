@@ -16,22 +16,22 @@ public class TopicDisplayService {
     private TopicDisplayRepository topicDisplayRepository;
 
     //retourne tous les topics
-    public Iterable<TopicDisplay> getTopicDisplays() {
+    public Iterable<TopicDisplay> getTopics() {
         return topicDisplayRepository.findAll();
     }
 
     //retourne 1 seul topic
-    public Optional<TopicDisplay> getTopicDisplayById(final Long id) {
+    public Optional<TopicDisplay> getTopicById(final Long id) {
         return topicDisplayRepository.findById(id);
     }
 
     //supprime 1 topic
-    public void deleteTopicDisplay(final Long id) {
+    public void deleteTopic(final Long id) {
         topicDisplayRepository.deleteById(id);
     }
 
     //sauvegarde 1 topic
-    public TopicDisplay saveTopicDisplay(TopicDisplay topicDisplay) {
+    public TopicDisplay saveTopic(TopicDisplay topicDisplay) {
         return topicDisplayRepository.save(topicDisplay);
     }
 
