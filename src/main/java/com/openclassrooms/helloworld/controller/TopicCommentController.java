@@ -27,6 +27,7 @@ public class TopicCommentController {
      * Read - all comments related to a topic
      * @param topicID - The id of the related topic
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/commentsByTopic{topicID}")
     public Iterable<TopicComment> getCommentsByTopic(@PathVariable("topicID") final Long topicID) {
         return commentService.getCommentByTopicId(topicID);

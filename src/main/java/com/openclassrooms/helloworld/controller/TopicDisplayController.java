@@ -28,6 +28,7 @@ public class TopicDisplayController {
      * @param id The id of the topic
      * @return A displayTopic fulfilled
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/topic{id}")
     public TopicDisplay getTopicById(@PathVariable("id") final Long id) {
         Optional<TopicDisplay> topicDisplay = displayService.getTopicById(id);
@@ -38,6 +39,7 @@ public class TopicDisplayController {
      * Read - Get all topics
      * @return - An Iterable object of TopicDisplay fulfilled
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/topics")
     public Iterable<TopicDisplay> getAllTopics() {
         return displayService.getTopics();

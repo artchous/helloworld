@@ -27,6 +27,7 @@ public class TopicFileController {
      * Read - all files related to a topic
      * @param topicID - The id of the related topic
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/filesByTopic{topicID}")
     public Iterable<TopicFile> getTopicFile(@PathVariable("topicID") final Long topicID) {
         return fileService.getFilesByTopicId(topicID);
