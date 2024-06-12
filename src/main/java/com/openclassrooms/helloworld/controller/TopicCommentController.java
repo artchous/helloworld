@@ -78,6 +78,7 @@ public class TopicCommentController {
     }
 
 
+    //Pas besoin si @OneToMany fonctionne et grâce à CascadeType.ALL
     /**
      * Delete - all comments related to a topic
      * @param topicID - The id of the related topic
