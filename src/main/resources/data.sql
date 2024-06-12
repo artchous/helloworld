@@ -23,8 +23,8 @@ CREATE TABLE topic_comment
     id              INT AUTO_INCREMENT PRIMARY KEY,
 
     topicID         INT,
-    comment_user    VARCHAR(250) NOT NULL,
-    comment_content VARCHAR(250) NOT NULL,
+    comment_user    VARCHAR(400) NOT NULL,
+    comment_content VARCHAR(500) NOT NULL,
     comment_date    VARCHAR(250) NOT NULL
 );
 
@@ -33,7 +33,7 @@ VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des commentaires', '1
        (1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
        (2, 'Mike Ross', 'On y est presque', '20.05.2011'),
        (2, 'Louis Litt', 'Ouf, cest totalement faux', '21.03.2024'),
-       (3, 'Louis Litt', 'Ouf, cest totalement faux', '21.03.2024'),
+       (3, 'Louis Litt', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.', '21.03.2024'),
        (4, 'Lupin','On y est presque', '20.05.2011'),
        (5, 'Veronica Lodge', 'Woaw incroyable', '15.02.2000')
 ;
@@ -44,43 +44,43 @@ CREATE TABLE topic_file
     id              INT AUTO_INCREMENT PRIMARY KEY,
 
     topicID         INT,
-    file_title      VARCHAR(250) NOT NULL,
+    file_title      VARCHAR(400) NOT NULL,
     file_type       VARCHAR(250) NOT NULL,
-    file_content    VARCHAR(250) NOT NULL,
+    file_content    VARCHAR(500) NOT NULL,
     file_date       VARCHAR(250) NOT NULL
 );
 
 INSERT INTO topic_file (topicID, file_title, file_type, file_content, file_date)
-VALUES (1,'helloWorld', 'js', 'if (blabla=blabla)' ||
-                              '{//do something}', '13.02.09'),
+VALUES (1,'helloWorld', 'js', 'if (blabla == "my test" { '
+                              ' \n //do something \n}', '15.02.2000'),
        (2,'helloWorld', 'js', 'if (blabla=blabla)' ||
-                              '{//do something}', '13.02.09'),
+                              '{//do something}', '13.02.2009'),
        (2,'hey', 'html', 'if (blabla=blabla)' ||
-                              '{//do something}', '13.02.09'),
+                              '{//do something}', '15.02.2000'),
        (3,'ficher231', 'html', 'if (blabla=blabla)' ||
-                         '{//do something}', '13.02.09'),
+                         '{//do something}', '13.02.2009'),
        (4,'helloWorld', 'js', 'if (blabla=blabla)' ||
-                              '{//do something}', '13.02.09'),
+                              '{//do something}', '12.12.2012'),
        (5,'file1', 'html', 'if (blabla=blabla)' ||
-                         '{//do something}', '13.02.09')
+                         '{//do something}', '20.05.2011')
 ;
 
 
 CREATE TABLE topic_display
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
-    title           VARCHAR(250) NOT NULL,
-    username        VARCHAR(250) NOT NULL,
+    title           VARCHAR(400) NOT NULL,
+    username        VARCHAR(400) NOT NULL,
     date_post       VARCHAR(250) NOT NULL,
-    description     VARCHAR(250) NOT NULL
+    description     VARCHAR(500) NOT NULL
 );
 
 INSERT INTO topic_display (title, username, date_post, description)
 VALUES
-    ('Essai1','Lily Bloom','23.02.24','Il me manque des infos'),
+    ('Essai1: Spring boot','Lily Bloom','23.02.24','Il me manque des infos'),
     ('Topic 2', 'Harvey Specter', '17.11.2003', 'Je ne sais pas comment améliorer'),
-    ('Topic 3', 'Louis Litt', '11.12.1984', 'abcdedfghijklmnop'),
-    ('4', 'Dora', '28.10.1293', 'J ai besoin daide'),
+    ('Topic 3', 'Louis Litt', '11.12.1984', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.'),
+    ('Topic 4: helloWorld', 'Dora', '28.10.1293', 'J ai besoin daide'),
     ('Topic 5', 'Anna', '28.10.1293', 'Partons à l aventure'),
     ('Topic 6', 'Mike', '28.10.1293', 'Aidez-moi :)')
 ;
