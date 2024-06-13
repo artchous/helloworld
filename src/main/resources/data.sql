@@ -24,14 +24,14 @@ CREATE TABLE topic_comment
 
     topicID         INT,
     comment_user    VARCHAR(400) NOT NULL,
-    comment_content VARCHAR(500) NOT NULL,
+    comment_content VARCHAR(65535) NOT NULL,
     comment_date    VARCHAR(250) NOT NULL
 );
 
 INSERT INTO topic_comment (topicID, comment_user, comment_content, comment_date)
 VALUES (1, 'Atlas Corrigan', 'Il faut améliorer et mettre des commentaires', '18.02.2012'),
        (1, 'Ryle Kincaid', 'Pas mal le code','12.12.2012'),
-       (2, 'Mike Ross', 'On y est presque', '20.05.2011'),
+       (2, 'Mike Ross', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.', '20.05.2011'),
        (2, 'Louis Litt', 'Ouf, cest totalement faux', '21.03.2024'),
        (3, 'Louis Litt', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.', '21.03.2024'),
        (4, 'Lupin','On y est presque', '20.05.2011'),
@@ -46,23 +46,21 @@ CREATE TABLE topic_file
     topicID         INT,
     file_title      VARCHAR(400) NOT NULL,
     file_type       VARCHAR(250) NOT NULL,
-    file_content    VARCHAR(500) NOT NULL,
+    file_content    VARCHAR(65535) NOT NULL,
     file_date       VARCHAR(250) NOT NULL
 );
 
 INSERT INTO topic_file (topicID, file_title, file_type, file_content, file_date)
-VALUES (1,'helloWorld', 'js', 'if (blabla == "my test" { '
-                              ' \n //do something \n}', '15.02.2000'),
-       (2,'helloWorld', 'js', 'if (blabla=blabla)' ||
-                              '{//do something}', '13.02.2009'),
-       (2,'hey', 'html', 'if (blabla=blabla)' ||
-                              '{//do something}', '15.02.2000'),
-       (3,'ficher231', 'html', 'if (blabla=blabla)' ||
-                         '{//do something}', '13.02.2009'),
-       (4,'helloWorld', 'js', 'if (blabla=blabla)' ||
-                              '{//do something}', '12.12.2012'),
-       (5,'file1', 'html', 'if (blabla=blabla)' ||
-                         '{//do something}', '20.05.2011')
+VALUES (1,'helloWorld', 'js',
+        'if (blabla == "my test" { //do something }', '15.02.2000'),
+       (1,'ficher231', 'html', 'if (blabla=blabla) {//do something}', '13.02.2009'),
+       (2,'helloWorld', 'js', 'if (blabla=blabla) {//do something}', '13.02.2009'),
+       (2,'hey', 'html', 'if (blabla=blabla) {//do something}', '15.02.2000'),
+       (3,'ficher231', 'html', 'if (blabla=blabla) {//do something}', '13.02.2009'),
+       (4,'helloWorld', 'js', 'if (blabla=blabla) {//do something}', '12.12.2012'),
+       (4,'ficher231', 'html', 'if (blabla=blabla) {//do something}', '13.02.2009'),
+       (4,'file1', 'html', 'if (blabla=blabla) {//do something}', '20.05.2011'),
+       (5,'file1', 'html', 'if (blabla=blabla) {//do something}', '20.05.2011')
 ;
 
 
@@ -72,17 +70,17 @@ CREATE TABLE topic_display
     title           VARCHAR(400) NOT NULL,
     username        VARCHAR(400) NOT NULL,
     date_post       VARCHAR(250) NOT NULL,
-    description     VARCHAR(500) NOT NULL
+    description     VARCHAR(65535) NOT NULL
 );
 
 INSERT INTO topic_display (title, username, date_post, description)
 VALUES
     ('Essai1: Spring boot','Lily Bloom','23.02.24','Il me manque des infos'),
-    ('Topic 2', 'Harvey Specter', '17.11.2003', 'Je ne sais pas comment améliorer'),
+    ('Topic 2 : Cari e-Portal', 'Harvey Specter', '17.11.2003', 'Je ne sais pas comment améliorer'),
     ('Topic 3', 'Louis Litt', '11.12.1984', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut arcu aliquam, bibendum mi sit amet, sodales velit. Sed gravida ultrices porttitor. Praesent id velit nec sem egestas venenatis.'),
     ('Topic 4: helloWorld', 'Dora', '28.10.1293', 'J ai besoin daide'),
     ('Topic 5', 'Anna', '28.10.1293', 'Partons à l aventure'),
-    ('Topic 6', 'Mike', '28.10.1293', 'Aidez-moi :)')
+    ('Topic 6: permis de conduire', 'Mike', '28.10.1293', 'Aidez-moi :)')
 ;
 
 

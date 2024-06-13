@@ -18,6 +18,7 @@ public class TopicDisplayController {
      * @param topic An object topicDisplay
      * @return The topic object saved
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/newTopic")
     public TopicDisplay createTopic(@RequestBody TopicDisplay topic) {
         return displayService.saveTopic(topic);
@@ -50,6 +51,7 @@ public class TopicDisplayController {
      * @param id    - The id of the employee to update
      * @param topic - the object topic updated
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/topic{id}")
     public TopicDisplay updateTopic(@PathVariable("id") final Long id, @RequestBody TopicDisplay topic) {
         //Va chercher le topic à modifier grâce à id
@@ -88,6 +90,7 @@ public class TopicDisplayController {
      * Delete - delete a topic
      * @param id - The id of the topic to delete
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/topic{id}")
     public void deleteTopic(@PathVariable("id") final Long id) {
         displayService.deleteTopic(id);
