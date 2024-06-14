@@ -19,7 +19,7 @@ public class TopicDisplayController {
      * @return The topic object saved
      */
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PostMapping("/newTopic")
+    @PostMapping("/createNewTopic")
     public TopicDisplay createTopic(@RequestBody TopicDisplay topic) {
         return displayService.saveTopic(topic);
     }

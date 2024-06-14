@@ -19,7 +19,7 @@ public class TopicFileController {
      * @return The file object saved
      */
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PostMapping("/addFile")
+    @PostMapping("/createFile")
     public TopicFile createTopicFile(@RequestBody TopicFile file) {
         return fileService.saveTopicFile(file);
     }
