@@ -18,6 +18,7 @@ public class TopicCommentController {
      * @param comment An object comment
      * @return The comment object saved
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/createComment")
     public TopicComment createComment(@RequestBody TopicComment comment) {
         return commentService.saveComment(comment);
@@ -38,6 +39,7 @@ public class TopicCommentController {
      * Update - update an existing comment
      * @param id The id of the comment
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/comment{id}")
     public TopicComment updateComment(@PathVariable("id") final Long id, @RequestBody TopicComment comment) {
         //Va chercher le commentaire à modifier grâce à id
@@ -72,16 +74,19 @@ public class TopicCommentController {
      * Delete - delete a comment
      * @param id - The id of the comment
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/comment{id}")
     public void deleteComment(@PathVariable("id") final Long id) {
         commentService.deleteComment(id);
     }
 
 
+    //Pas besoin si @OneToMany fonctionne et grâce à CascadeType.ALL
     /**
      * Delete - all comments related to a topic
      * @param topicID - The id of the related topic
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/commentsByTopic{topicID}")
     public void deleteCommentsByTopic(@PathVariable("topicID") final Long topicID) {
         commentService.deleteCommentByTopicId(topicID);

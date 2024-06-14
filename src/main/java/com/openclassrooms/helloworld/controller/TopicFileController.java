@@ -18,7 +18,8 @@ public class TopicFileController {
      * @param file An object file
      * @return The file object saved
      */
-    @PostMapping("/addFile")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("/createFile")
     public TopicFile createTopicFile(@RequestBody TopicFile file) {
         return fileService.saveTopicFile(file);
     }
@@ -38,6 +39,7 @@ public class TopicFileController {
      * Update - update an existing comment
      * @param id The id of the comment
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/file{id}")
     public TopicFile updateTopicFile(@PathVariable("id") final Long id, @RequestBody TopicFile file) {
         //Va chercher le file à modifier grâce à l'id
@@ -76,6 +78,7 @@ public class TopicFileController {
      * Delete - delete a file
      * @param id - The id of the file
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/file{id}")
     public void deleteTopicFile(@PathVariable("id") final Long id) {
         fileService.deleteFile(id);
@@ -85,6 +88,7 @@ public class TopicFileController {
      * Delete - all files related to a topic
      * @param topicID - The id of the related topic
      */
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/filesByTopic{topicID}")
     public void deleteAllTopicFileForTopic(@PathVariable("topicID") final Long topicID) {
         fileService.deleteFilesByTopicId(topicID);
